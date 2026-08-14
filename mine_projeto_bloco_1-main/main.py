@@ -1,6 +1,6 @@
-import csv
+import csv # ler arquivos csv
 
-from functions import sanitizar_texto_categoria, tratar_dimensoes_fisicas
+from functions import organizar_texto_categoria, tratar_dimensoes_fisicas # importando funções que pretendo utilizar
 
 def executar_pipeline():
     caminho_produtos = "mine_projeto_bloco_1-main/data/raw/olist_products_dataset.csv"
@@ -14,7 +14,7 @@ def executar_pipeline():
         for linha in leitor:
             # Aplica a sanitização do texto na coluna de categoria
             categoria_bruta = linha.get('product_category_name')
-            linha['product_category_name'] = sanitizar_texto_categoria(categoria_bruta)
+            linha['product_category_name'] = organizar_texto_categoria(categoria_bruta)
             
             # Aplica o tratamento das dimensões físicas (peso, altura, etc.)
             linha = tratar_dimensoes_fisicas(linha)
@@ -23,7 +23,6 @@ def executar_pipeline():
             
     # Exibe o primeiro produto processado para testar
     print("Exemplo do primeiro produto:")
-    print(produtos_sanitizados[0])
+    print(produtos_sanitizados[105])
 
-if __name__ == "__main__":
-    executar_pipeline()
+executar_pipeline()
