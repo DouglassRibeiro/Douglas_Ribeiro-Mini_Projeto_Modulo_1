@@ -1,6 +1,6 @@
 import re
 
-def sanitizar_texto_categoria(texto): # Padronização de nomes da categoria Produto.
+def organizar_texto_categoria(texto): # Padronização de nomes da categoria Produto.
     if not texto or texto.strip() == '':
         return 'sem categoria' # evitando um AttributeError 'product_category_name', já é definido aqui
     
