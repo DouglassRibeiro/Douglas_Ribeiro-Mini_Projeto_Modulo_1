@@ -1,6 +1,6 @@
 import re
 
-def organizar_texto_categoria(texto): # Padronização de nomes da categoria Produto.
+def sanitizar_texto_categoria(texto): # Padronização de nomes da categoria Produto.
     if not texto or texto.strip() == '':
         return 'sem categoria' # evitando um AttributeError 'product_category_name', já é definido aqui
     
@@ -10,16 +10,16 @@ def organizar_texto_categoria(texto): # Padronização de nomes da categoria Pro
 
     return texto_limpo
 
-def tratar_dimensoes_fisicas(produto): # Não irei excluir uma linha por completo vou perder dados assim, apenas irei definir os valores nulos como 0.0 e converter todos para float, ou sem categoria.
+def tratar_dimensoes_fisicas(produto): # Não vou excluir uma linha por completo pederei dados assim, apenas irei definir os valores nulos como 0.0 e converter para float, ou sem categoria.
     campos_dimensoes = [
         #'product_category_name', # string(sem categoria)
-        'product_name_lenght', # float(0.0)
-        'product_description_lenght', # float(0.0)
-        'product_photos_qty', # float(0.0)
-        'product_weight_g', # float(0.0)
-        'product_length_cm', # float(0.0)
-        'product_height_cm', # float(0.0)
-        'product_width_cm' # float(0.0)
+       'product_name_lenght', # float 0.0
+        'product_description_lenght', # float 0.0
+        'product_photos_qty', # float 0.0
+        'product_weight_g', # float 0.0
+        'product_length_cm', # float 0.0
+        'product_height_cm', # float 0.0
+        'product_width_cm' # float 0.0
     ]
 
     for campo in campos_dimensoes:
