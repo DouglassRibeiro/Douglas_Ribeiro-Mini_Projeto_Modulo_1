@@ -1,12 +1,8 @@
 import csv # ler arquivos csv
 
-<<<<<<< Updated upstream
-from functions import organizar_texto_categoria, tratar_dimensoes_fisicas # importando funções que pretendo utilizar
-=======
 from functions import organizar_texto_categoria, tratar_dimensoes_fisicas, filtro_validação, formatacao_temporal # importando funções que pretendo utilizar
 
 # Contadores para produtos
->>>>>>> Stashed changes
 
 def executar_pipeline():
     total_produtos = 0
@@ -20,8 +16,11 @@ def executar_pipeline():
     outros_status = 0
 
     caminho_produtos = "mine_projeto_bloco_1-main/data/raw/olist_products_dataset.csv"
-    
     produtos_sanitizados = []
+
+    caminho_pedidos = "mine_projeto_bloco_1-main/data/raw/olist_orders_dataset.csv"
+    pedidos_processados = []
+    
     
     # 1. Leitura do arquivo CSV com DictReader
     with open(caminho_produtos, mode='r', encoding='utf-8') as file:
@@ -40,12 +39,6 @@ def executar_pipeline():
             linha = tratar_dimensoes_fisicas(linha)
             
             produtos_sanitizados.append(linha)
-<<<<<<< Updated upstream
-            
-    # Exibe o primeiro produto processado para testar
-    print("Exemplo do primeiro produto:")
-    print(produtos_sanitizados[105])
-=======
 
 
     with open(caminho_pedidos, mode='r', encoding='utf-8') as file:
@@ -82,6 +75,5 @@ def executar_pipeline():
 #    print(produtos_sanitizados[105])
 #    print(pedidos_processados[105])
 
->>>>>>> Stashed changes
 
 executar_pipeline()

@@ -59,3 +59,9 @@ def filtro_validação(lista_pedidos):
                 outros_status += 1
 
     return total_sem_entrega, cancelados, outros_status
+
+def formatacao_temporal(data):
+    if not data or data.strip() == '':
+        return 'N/A'
+    objeto_data = datetime.strptime(data, '%Y-%m-%d %H:%M:%S')
+    return objeto_data.strftime('%d/%m/%Y')
