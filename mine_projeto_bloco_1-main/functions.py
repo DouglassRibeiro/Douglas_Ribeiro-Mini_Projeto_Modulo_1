@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 def organizar_texto_categoria(texto): # Padronização de nomes da categoria Produto.
     if not texto or texto.strip() == '':
