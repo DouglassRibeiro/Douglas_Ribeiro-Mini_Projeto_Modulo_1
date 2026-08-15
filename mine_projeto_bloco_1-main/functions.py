@@ -31,3 +31,30 @@ def tratar_dimensoes_fisicas(produto): # Não irei excluir uma linha por complet
             produto[campo] = float(valor)
 
     return produto
+
+def filtro_validação(lista_pedidos):
+
+    cancelados = 0
+    total_sem_entrega = 0
+    outros_status = 0
+
+    campos_dimensoes = [
+        'order_delivered_customer_date',
+        'order_status'
+    ]
+
+    for pedido in lista_pedidos:
+        data_entrega = pedido.get('order_delivered_customer_date')
+        status = pedido.get('order_status')
+
+        # 1. Checa se a data de entrega é nula/vazia
+        if not data_entrega or data_entrega.strip() == '':
+            total_sem_entrega += 1  # Soma +1 para qualquer entrega vazia
+
+            # 2. Classifica o motivo
+            if status == 'canceled':
+                cancelados += 1
+            else:
+                outros_status += 1
+
+    return total_sem_entrega, cancelados, outros_status
