@@ -67,4 +67,4 @@ def formatacao_temporal(data): # %H:%M:%S: Horas, minutos e segundos | %Y: Ano ,
 
     objeto_data = datetime.strptime(data, '%Y-%m-%d %H:%M:%S') # pega os valores já convertendo para objeto - strp > interpretar
 
-    return objeto_data.strftime('%d/%m/%Y') # retornar formato em string para ptbr strf > formatar
+    return objeto_data.strftime('%d/%m/%Y') # retornar formato em string para ptbr - strf > formatar
