@@ -62,7 +62,6 @@ def executar_pipeline():
 
     total_sem_entrega, cancelados, outros_status = filtro_validação(pedidos_processados)
             
-    # Exibe o primeiro produto processado para testar
     print("=" * 40)
     print("RELATÓRIO DE SANITIZAÇÃO DA BASE OLIST")
     print("=" * 40)
@@ -72,8 +71,5 @@ def executar_pipeline():
     print(f"Total de pedidos cancelados: {cancelados}")
     print(f"Pedidos sem data de entrega (outros status): {outros_status}")
     print("=" * 40)
-#    print(produtos_sanitizados[105])
-#    print(pedidos_processados[105])
-
 
 executar_pipeline()
